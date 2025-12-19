@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using Source.Data;
 using UnityEngine;
-using UnityEngine.Windows.Speech;
 
 namespace Source
 {

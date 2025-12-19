@@ -21,7 +21,7 @@ namespace Source.Game.Entity
         {
             _sr.sprite = sprite;
             transform.position = start;
-            
+            transform.up = direction.normalized;
             Damage = dmg;
             _speed = speed;
             _dir = direction.normalized;
