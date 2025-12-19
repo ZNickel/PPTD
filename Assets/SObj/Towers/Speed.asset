@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
+  m_Name: Speed
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
+  levelCount: 5
+  headSprites:
+  - {fileID: 4992046663347823888, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 3425643716875507773, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: -5284308848859158369, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: -5894673246871916731, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 7507496576144308314, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  bulletSprite: {fileID: -511288751, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  basePrice: 50
+  baseLvlUpPrice: 25
+  lvlUpPriceFactor: 1.5
+  sellPriceFactor: 0.75
+  range: 3
+  atkSpeed: 1.5
+  projectileSpeed: 10
+  hp: 100
+  damage: 22
+  lvlFacRange: 1
+  lvlFacAtkSpeed: 1
+  lvlFacProjSpeed: 1
+  lvlFacHp: 1
+  lvlFacDamage: 1.8
+  boostRange: 1.5
+  boostAtkSpeed: 1.5
+  boostFacProjSpeed: 1.5
+  boostHp: 1.5
+  boostDamage: 1.5

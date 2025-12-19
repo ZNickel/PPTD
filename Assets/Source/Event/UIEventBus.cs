@@ -1,0 +1,41 @@
+using System;
+using Source.Game.Controllers;
+using Source.Game.Entity;
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace Source.Event
+{
+    public class UIEventBus
+    {
+        private static UIEventBus _instance;
+        public static UIEventBus Instance => _instance ??= new UIEventBus();
+
+        public UnityEvent EventClick { get; } = new ();
+        public void Trigger_EventClick() => EventClick.Invoke();
+        
+        public UnityEvent<float> EventClickPowerChanged { get; } = new ();
+        public void Trigger_EventClickPowerChanged(float v) => EventClickPowerChanged.Invoke(v);
+        
+        public UnityEvent<int> EventCoinCountChanged { get; } = new ();
+        public void Trigger_EventCoinCountChanged(int v) => EventCoinCountChanged.Invoke(v);
+        
+        public UnityEvent<int> EventPowerCountChanged { get; } = new ();
+        public void Trigger_EventPowerCountChanged(int v) => EventPowerCountChanged.Invoke(v);
+        
+        public UnityEvent<int> EventHealthCountChanged { get; } = new ();
+        public void Trigger_EventHealthCountChanged(int v) => EventHealthCountChanged.Invoke(v);
+        
+        public UnityEvent<TowerData> EventSelectShopItem { get; } = new();
+        public void Trigger_EventSelectShopItem(TowerData data) => EventSelectShopItem.Invoke(data);
+        
+        public UnityEvent<TowerController, float, float, Tower> EventShowTowerPopup { get; } = new();
+        public void Trigger_EventShowTowerPopup(TowerController tc, float x, float y, Tower t) => EventShowTowerPopup.Invoke(tc, x, y, t);
+        
+        public UnityEvent EventHideTowerPopup { get; } = new();
+        public void Trigger_EventHideTowerPopup() => EventHideTowerPopup.Invoke();
+        
+        public UnityEvent<bool> EventGameOver { get; } = new();
+        public void Trigger_EventGameOver(bool win) => EventGameOver.Invoke(win);
+    }
+}

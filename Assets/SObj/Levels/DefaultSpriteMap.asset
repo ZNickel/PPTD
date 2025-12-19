@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 652c09f5d1e44c3fabcc7ecfeb33e675, type: 3}
+  m_Name: DefaultSpriteMap
+  m_EditorClassIdentifier: Assembly-CSharp::Source.TileMap
+  none: {fileID: 6008755849024553855, guid: 0dfaa18579ea0d04383ccf9289ec6718, type: 3}
+  road: {fileID: -764957640, guid: 63fed1b985a2ef54f805bca32a750103, type: 3}
+  grass: {fileID: 1249952711, guid: 63fed1b985a2ef54f805bca32a750103, type: 3}
+  towerPlace: {fileID: 1270513919, guid: 63fed1b985a2ef54f805bca32a750103, type: 3}
+  blends: []

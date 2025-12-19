@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
+  m_Name: Cooler
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
+  levelCount: 5
+  headSprites:
+  - {fileID: 5316636524980310899, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: -2564645547722657412, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 1933685723217348330, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: -2971098438283475780, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: -850531169408145049, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  bulletSprite: {fileID: -568163705, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  basePrice: 125
+  baseLvlUpPrice: 60
+  lvlUpPriceFactor: 1.5
+  sellPriceFactor: 0.75
+  range: 3
+  atkSpeed: 1
+  projectileSpeed: 10
+  hp: 100
+  damage: 10
+  lvlFacRange: 1.2
+  lvlFacAtkSpeed: 1.2
+  lvlFacProjSpeed: 1.2
+  lvlFacHp: 1.2
+  lvlFacDamage: 1.2
+  boostRange: 1.5
+  boostAtkSpeed: 1.5
+  boostFacProjSpeed: 1.5
+  boostHp: 1.5
+  boostDamage: 1.5

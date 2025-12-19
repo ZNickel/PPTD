@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
+  m_Name: Lightning
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
+  levelCount: 5
+  headSprites:
+  - {fileID: 3306293183398556490, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 3218571185514394814, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 1680680199544230613, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 8488281129223400612, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  - {fileID: 3923716718836267103, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  bulletSprite: {fileID: -1224415396, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  basePrice: 125
+  baseLvlUpPrice: 50
+  lvlUpPriceFactor: 1.5
+  sellPriceFactor: 0.75
+  range: 4
+  atkSpeed: 1.5
+  projectileSpeed: 1
+  hp: 100
+  damage: 15
+  lvlFacRange: 1
+  lvlFacAtkSpeed: 1.2
+  lvlFacProjSpeed: 1
+  lvlFacHp: 1
+  lvlFacDamage: 1.4
+  boostRange: 1.5
+  boostAtkSpeed: 1.5
+  boostFacProjSpeed: 1.5
+  boostHp: 1.5
+  boostDamage: 1.5
