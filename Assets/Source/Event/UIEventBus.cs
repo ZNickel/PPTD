@@ -1,4 +1,5 @@
 using System;
+using Source.Data.Towers;
 using Source.Game.Controllers;
 using Source.Game.Entity;
 using UnityEngine;
@@ -37,5 +38,12 @@ namespace Source.Event
         
         public UnityEvent<bool> EventGameOver { get; } = new();
         public void Trigger_EventGameOver(bool win) => EventGameOver.Invoke(win);
+        
+        
+        public UnityEvent<TowerData, int> OpenTowerInfoLarge { get; } = new();
+        public void Trigger_OpenTowerInfoLarge(TowerData data, int level) => OpenTowerInfoLarge.Invoke(data, level);
+        
+        public UnityEvent<TowerData, int> OpenTowerInfoSmall { get; } = new();
+        public void Trigger_OpenTowerInfoSmall(TowerData data, int level) => OpenTowerInfoSmall.Invoke(data, level);
     }
 }

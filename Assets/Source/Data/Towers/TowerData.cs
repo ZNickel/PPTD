@@ -1,18 +1,21 @@
-using System;
-using Source.Data;
 using UnityEngine;
 
-namespace Source.Game.Entity
+namespace Source.Data.Towers
 {
     [CreateAssetMenu(fileName = "TowerData", menuName = "Entities/Tower Data")]
     public class TowerData : ScriptableObject
     {
         #region Setup
-
-        [Header("Setup")] [SerializeField] private int levelCount;
+        
+        [Header("Setup")] 
+        [SerializeField] private string tName;
+        [SerializeField] private int levelCount;
         [SerializeField] private Sprite[] headSprites;
         [SerializeField] private Sprite bulletSprite;
+        [SerializeField] private TowerSkillParams skill;
 
+        public TowerSkillParams Skill => skill;
+        public string Tname => tName;
         public int LevelCount => levelCount;
         public Sprite[] HeadSprites => headSprites;
         public Sprite BulletSprite => bulletSprite;
@@ -50,13 +53,15 @@ namespace Source.Game.Entity
         [SerializeField] private float hp;
         [SerializeField] private float damage;
 
-        [Header("LvlUp")] [SerializeField] private float lvlFacRange = 1.2f;
+        [Header("LvlUp")] 
+        [SerializeField] private float lvlFacRange = 1.2f;
         [SerializeField] private float lvlFacAtkSpeed = 1.2f;
         [SerializeField] private float lvlFacProjSpeed = 1.2f;
         [SerializeField] private float lvlFacHp = 1.2f;
         [SerializeField] private float lvlFacDamage = 1.2f;
 
-        [Header("Boost")] [SerializeField] private float boostRange = 1f;
+        [Header("Boost")] 
+        [SerializeField] private float boostRange = 1f;
         [SerializeField] private float boostAtkSpeed = 1f;
         [SerializeField] private float boostFacProjSpeed = 1f;
         [SerializeField] private float boostHp = 1f;

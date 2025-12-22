@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
   m_Name: Speed
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
+  tName: 
   levelCount: 5
   headSprites:
   - {fileID: 4992046663347823888, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
@@ -20,6 +21,7 @@ MonoBehaviour:
   - {fileID: -5894673246871916731, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 7507496576144308314, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   bulletSprite: {fileID: -511288751, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  skill: {fileID: 11400000, guid: 4d66e308fd5591f419fd8d386c6473da, type: 2}
   basePrice: 50
   baseLvlUpPrice: 25
   lvlUpPriceFactor: 1.5

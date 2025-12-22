@@ -1,4 +1,4 @@
-namespace Source.Data
+namespace Source.Data.Towers
 {
     public class TowerStats
     {
