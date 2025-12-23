@@ -61,11 +61,10 @@ namespace Source.Game.Entity
                 _wpIndex++;
         }
 
-        private void Hit(float damage)
+        public void Hit(float damage)
         {
             var old = _currentHp;
             _currentHp -= damage;
-            Debug.Log($"{old} - {damage} = {_currentHp}");
             if (_currentHp > 0) return;
             _dieAction?.Invoke();
             Destroy(gameObject);
@@ -73,7 +72,6 @@ namespace Source.Game.Entity
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("Contact");
             var o = other.gameObject;
             if (!o.CompareTag("Bullet")) return;
             var b = o.GetComponent<Bullet>();

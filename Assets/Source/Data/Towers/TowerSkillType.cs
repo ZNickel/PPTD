@@ -5,7 +5,7 @@ namespace Source.Data.Towers
         Splash,
         Dot,
         Chain,
+        Hit,
         Debuff,
-        Buff,
     }
 }
