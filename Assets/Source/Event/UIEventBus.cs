@@ -45,5 +45,14 @@ namespace Source.Event
         
         public UnityEvent<TowerData, int> OpenTowerInfoSmall { get; } = new();
         public void Trigger_OpenTowerInfoSmall(TowerData data, int level) => OpenTowerInfoSmall.Invoke(data, level);
+        
+        public UnityEvent<Enemy> AttachHpBar { get; } = new();
+        public void Trigger_AttachHpBar(Enemy e) => AttachHpBar.Invoke(e);
+        
+        public UnityEvent<Enemy> DetachHpBar { get; } = new();
+        public void Trigger_DetachHpBar(Enemy e) => DetachHpBar.Invoke(e);
+        
+        public UnityEvent<Enemy, float> UpdateEnemyHp { get; } = new();
+        public void Trigger_UpdateEnemyHp(Enemy e, float hpNormalized) => UpdateEnemyHp.Invoke(e, hpNormalized);
     }
 }

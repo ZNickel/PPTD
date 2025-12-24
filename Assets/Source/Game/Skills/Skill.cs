@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Source.Game.Skills
 {
-    public abstract class Skill : MonoBehaviour
+    public abstract class Skill
     {
         protected TowerSkillParams Tsp;
         protected int Level;

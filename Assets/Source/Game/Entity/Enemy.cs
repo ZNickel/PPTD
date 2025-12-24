@@ -1,4 +1,5 @@
 using Source.Data.Way;
+using Source.Event;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -63,9 +64,18 @@ namespace Source.Game.Entity
 
         public void Hit(float damage)
         {
+            if (_currentHp < 0f) return;
+            
             var old = _currentHp;
             _currentHp -= damage;
+
+            if (Mathf.Approximately(old, data.Hp) && _currentHp < data.Hp)
+                UIEventBus.Instance.Trigger_AttachHpBar(this);
+            UIEventBus.Instance.Trigger_UpdateEnemyHp(this, 1f - _currentHp / data.Hp);
+            
             if (_currentHp > 0) return;
+            
+            UIEventBus.Instance.Trigger_DetachHpBar(this);
             _dieAction?.Invoke();
             Destroy(gameObject);
         }
