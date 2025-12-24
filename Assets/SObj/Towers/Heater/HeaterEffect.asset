@@ -18,7 +18,7 @@ MonoBehaviour:
   showRadius: 0
   showCount: 0
   showTime: 1
-  damage: 10
+  damage: 2
   radius: 2
   count: 3
   time: 5

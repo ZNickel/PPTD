@@ -34,7 +34,7 @@ MonoBehaviour:
   atkSpeed: 1
   projectileSpeed: 10
   hp: 100
-  damage: 10
+  damage: 25
   lvlFacRange: 1.2
   lvlFacAtkSpeed: 1.2
   lvlFacProjSpeed: 1.2

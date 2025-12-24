@@ -24,5 +24,22 @@ namespace Source.Data.Way
                 d += Vector3.Distance(points[i], points[i + 1]);
             return d;
         }
+
+        public Vector3 GetWaveIndicatorPosition()
+        {
+            var start = points[0];
+            
+            var d1 =  Vector3.Distance(points[1], points[0]);
+            
+            start += (points[1] - points[0]).normalized;
+            d1 -= 1f;
+            
+            if (d1 >= 1f)
+                start += (points[1] - points[0]).normalized;
+            else 
+                start += (points[2] - points[1]).normalized;
+            
+            return start;
+        }
     }
 }

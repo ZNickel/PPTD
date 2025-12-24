@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Source.Event;
+using Source.Game.Entity;
 using UnityEngine;
 
 namespace Source.UI.Hud.PopUpNumbers
@@ -26,14 +27,14 @@ namespace Source.UI.Hud.PopUpNumbers
             _offset = popUpNumberPrefab.GetComponent<RectTransform>().sizeDelta / -2f + posOffset;
         }
         
-        private void Show(int value, Transform pos)
+        private void Show(int value, Enemy e)
         {
+            if (e == null) return;
             var contains = _free.TryPop(out var result);
             var popUp = contains ? result : CreateNew();
-            var wPos = _cam.WorldToScreenPoint(pos.position);
+            var wPos = _cam.WorldToScreenPoint(e.transform.position);
             
             popUp.Rt.anchoredPosition = new Vector2(wPos.x, wPos.y) + _offset;
-            
             popUp.Show(value, _free, showTime);
         }
 

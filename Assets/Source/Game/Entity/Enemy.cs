@@ -70,7 +70,7 @@ namespace Source.Game.Entity
             var old = _currentHp;
             
             _currentHp -= damage;
-            UIEventBus.Instance.Trigger_ShowPopupNumber(Mathf.RoundToInt(damage), transform);
+            UIEventBus.Instance.Trigger_ShowPopupNumber(Mathf.RoundToInt(damage), this);
 
             if (Mathf.Approximately(old, data.Hp) && _currentHp < data.Hp)
                 UIEventBus.Instance.Trigger_AttachHpBar(this);
@@ -80,7 +80,8 @@ namespace Source.Game.Entity
             
             UIEventBus.Instance.Trigger_DetachHpBar(this);
             _dieAction?.Invoke();
-            Destroy(gameObject);
+            if (gameObject)
+                Destroy(gameObject);
         }
 
         private void OnTriggerEnter2D(Collider2D other)

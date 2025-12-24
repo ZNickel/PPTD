@@ -25,11 +25,13 @@ namespace Source.Game.Controllers
         private float _elapsedDelay = 0f;
         private bool _spawn;
         private float _timer;
-
+        
         private List<Enemy>[] _alive;
         
         public EnemySelector Selector {get; private set;}
 
+        public float WaveDelay => _waves[_currentWaveIndex].InitialDelay;
+        
         private void Awake() => _gc = GetComponent<GameController>();
 
         public void Setup(WaveData[] waves, WayPackData ways)
@@ -49,10 +51,13 @@ namespace Source.Game.Controllers
             _spawn = true;
             _timer = 0;
             _elapsedDelay = 0;
+            UIEventBus.Instance.Trigger_ShowWaveIndicator(this, _ways.GetIndicatorPosition());
         }
 
         private bool _endTriggered;
-        
+
+        public void ForcedLaunch() => _elapsedDelay = float.MaxValue / 2f;
+
         private void Update()
         {
             if (_endTriggered) return;
@@ -63,7 +68,7 @@ namespace Source.Game.Controllers
                 return;
             }
             
-            if (_elapsedDelay < _waves[_currentWaveIndex].InitialDelay)
+            if (_elapsedDelay < WaveDelay)
             {
                 _elapsedDelay += Time.deltaTime;
                 return;

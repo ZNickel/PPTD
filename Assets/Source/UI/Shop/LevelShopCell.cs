@@ -1,9 +1,6 @@
-using System;
 using Source.Data.Towers;
 using Source.Event;
-using Source.Game.Entity;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -12,11 +9,14 @@ namespace Source.UI.Shop
 {
     public class LevelShopCell : MonoBehaviour, IPointerClickHandler
     {
+        [SerializeField] private Color selectedColor = new (0.75f, 0.75f, 0.75f);
+        [SerializeField] private Color normalColor = new (1.0f, 1.0f, 1.0f);
         [SerializeField] private Image baseImg;
         [SerializeField] private Image headImg;
         [SerializeField] private TMP_Text text;
 
-        private Image _bg;
+        [SerializeField] private Image[] bg;
+
         private CanvasGroup _canvasGroup;
             
         private bool _selected;
@@ -31,13 +31,12 @@ namespace Source.UI.Shop
             set
             {
                 _selected = value;
-                _bg.color = _selected ? new Color(0.5f, 0.5f, 0.5f) : new Color(1.0f, 1.0f, 1.0f);
+                BgSetColor(_selected ? selectedColor : normalColor);
             }
         }
 
         private void Awake()
         {
-            _bg = GetComponent<Image>();
             _canvasGroup = GetComponent<CanvasGroup>();
             UIEventBus.Instance.EventCoinCountChanged.AddListener(ValidateAvailable);
         }
@@ -63,6 +62,12 @@ namespace Source.UI.Shop
         {
             if (!_available) return;
             _shop.Select(this);
+        }
+
+        private void BgSetColor(Color c)
+        {
+            foreach (var bgElem in bg)
+                bgElem.color = c;
         }
     }
 }

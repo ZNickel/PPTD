@@ -64,8 +64,8 @@ namespace Source.Event
 
         #region  PupUp numbers
 
-        public UnityEvent<int, Transform> ShowPopupNumber { get; } = new();
-        public void Trigger_ShowPopupNumber(int value, Transform t) => ShowPopupNumber.Invoke(value, t);
+        public UnityEvent<int, Enemy> ShowPopupNumber { get; } = new();
+        public void Trigger_ShowPopupNumber(int value, Enemy e) => ShowPopupNumber.Invoke(value, e);
         
         #endregion
 
@@ -73,6 +73,13 @@ namespace Source.Event
 
         public UnityEvent<Tower> EnableSkillLauncher { get; } = new();
         public void Trigger_EnableSkillLauncher(Tower t) => EnableSkillLauncher.Invoke(t);
+
+        #endregion
+        
+        #region Wave indicator
+        
+        public UnityEvent<WaveController, Vector3> ShowWaveIndicator { get; } = new();
+        public void Trigger_ShowWaveIndicator(WaveController wc, Vector3 pos) => ShowWaveIndicator.Invoke(wc, pos);
 
         #endregion
     }

@@ -19,7 +19,7 @@ namespace Source.Game.Entity.Bullets
         {
             transform.position += _dir * (Speed * Time.fixedDeltaTime);
 
-            if ((transform.position - From).magnitude < 3f)
+            if ((transform.position - From).magnitude < 144f)
             {
                 _hit = false;
                 Destroy(gameObject);

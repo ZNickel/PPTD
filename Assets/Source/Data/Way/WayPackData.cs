@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Source.Data.Way
 {
@@ -10,5 +11,7 @@ namespace Source.Data.Way
         public WayData this[int index] => ways[index];
         
         public int Count => ways.Count;
+
+        public Vector3 GetIndicatorPosition() => ways[Random.Range(0, Count)].GetWaveIndicatorPosition();
     }
 }

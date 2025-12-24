@@ -17,4 +17,4 @@ MonoBehaviour:
   hp: 800
   damage: 2
   bounty: 300
-  energyBounty: 5
+  energyBounty: 15

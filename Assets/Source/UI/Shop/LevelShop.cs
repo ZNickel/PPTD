@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using Source.Data.Towers;
 using Source.Event;
-using Source.Game.Entity;
 using UnityEngine;
 
 namespace Source.UI.Shop
@@ -17,8 +15,8 @@ namespace Source.UI.Shop
         
         private LevelShopCell[] _cells;
 
-        public TowerData SelectedTowerData { get; private set; }
-        public bool Opened { get; private set; }
+        private TowerData SelectedTowerData { get; set; }
+        private bool Opened { get; set; }
 
         private void Awake()
         {
