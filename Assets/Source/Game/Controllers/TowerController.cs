@@ -6,6 +6,7 @@ using Source.Data.Towers;
 using Source.Event;
 using Source.Game.Entity;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Source.Game.Controllers
@@ -30,17 +31,17 @@ namespace Source.Game.Controllers
         
         private Mode TcMode { get; set; }
 
-        private Camera _camera;
+        private Camera _cam;
         private GameController _gc;
         
         private TowerData _placeTowerData;
 
         private Vector2 _qaShift; 
         private (CellStatus status, Tower tower)[,] _grid;
-        private Dictionary<int, Dictionary<int, (CellStatus status, Tower tower)>> _quickAccessTable;
+        private Dictionary<int, Dictionary<int, (CellStatus status, Tower tower)>> _accessTable;
         
         private GameObject _ghost;
-        private SpriteRenderer _ghostBase, _ghostHead;
+        private SpriteRenderer _ghostHead;
 
         private void Awake() => _gc = GetComponent<GameController>();
 
@@ -51,7 +52,7 @@ namespace Source.Game.Controllers
 
         private void Start()
         {
-            _camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+            _cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
             UIEventBus.Instance.EventSelectShopItem.AddListener(ShopItemSelected);
             CreateGhost();
             ValidateGhost();
@@ -69,34 +70,46 @@ namespace Source.Game.Controllers
         private void Update()
         {
             if (ShowenMenu) return;
-            var mouseScreen = Mouse.current.position.ReadValue();
-            var mwp = new Vector3(mouseScreen.x, mouseScreen.y, _camera.transform.position.z);
-            var worldPos = _camera.ScreenToWorldPoint(mwp);
 
-            var x = Mathf.RoundToInt(worldPos.x);
-            var y = Mathf.RoundToInt(worldPos.y);
-
-            var inBounds = _quickAccessTable.ContainsKey(x) && _quickAccessTable[x].ContainsKey(y);
+            var (x, y, ogo, lmb, rmb) = GetMouseInfo();
             
-            if (TcMode == Mode.Select)
-            {
-                var t = !inBounds || _quickAccessTable[x][y].status != CellStatus.Tower ? null : _quickAccessTable[x][y].tower;
-                var screenPos = _camera.WorldToScreenPoint(new Vector3(x, y, 0));
+            if (lmb || rmb) Debug.Log(ogo);
+            
+            var inBounds = _accessTable.ContainsKey(x) && _accessTable[x].ContainsKey(y);
 
-                if (Mouse.current.leftButton.wasPressedThisFrame)
-                {
-                    UIEventBus.Instance.Trigger_EventShowTowerPopup(this, screenPos.x, screenPos.y, t);
-                }
+            if (TcMode == Mode.Select) SelectTower(x, y, inBounds, ogo, lmb, rmb);
+            else PlaceTower(x, y, inBounds, ogo, lmb);
+        }
+
+        private (int x, int y, bool ogo, bool lmb, bool rmb) GetMouseInfo()
+        {
+            var pos = _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+            return (
+                Mathf.RoundToInt(pos.x),
+                Mathf.RoundToInt(pos.y),
+                !EventSystem.current.IsPointerOverGameObject(),
+                Mouse.current.leftButton.wasPressedThisFrame,
+                Mouse.current.leftButton.wasPressedThisFrame
+            );
+        }
+
+        private void SelectTower(int x, int y, bool inBounds, bool overGameObj, bool lmb, bool rmb)
+        {
+            var t = !inBounds || _accessTable[x][y].status != CellStatus.Tower ? null : _accessTable[x][y].tower;
                 
-                return;
-            }
-            
+            if (!overGameObj) return;
+            if (lmb) UIEventBus.Instance.Trigger_EventShowTowerPopup(this, t);
+            else if (rmb) UIEventBus.Instance.Trigger_EventHideTowerPopup();
+        }
+
+        private void PlaceTower(int x, int y, bool inBounds, bool overGameObj, bool lmb)
+        {
             if (!inBounds) return;
             
-            _ghost.transform.position = _quickAccessTable[x][y].status == CellStatus.Empty 
+            _ghost.transform.position = _accessTable[x][y].status == CellStatus.Empty 
                 ? new Vector3(x, y, -1f) 
                 : new Vector3(-1000, -1000, -1f);
-            if (Mouse.current.leftButton.wasPressedThisFrame) CreateTower(_placeTowerData, x, y);
+            if (overGameObj && lmb) CreateTower(_placeTowerData, x, y);
         }
 
         public void LevelUp(Tower t)
@@ -108,7 +121,14 @@ namespace Source.Game.Controllers
 
         public void Sell(Tower t)
         {
+            var price = t.Data.SellPrice(t.Level);
+            _gc.CResource.ChangeCoin(price);
+
+            var (x, y) = FindTowerXy(t);
             
+            _accessTable[x][y] = (CellStatus.Empty, null);
+            _grid[(int)(x - _qaShift.x), (int)(y - _qaShift.y)] = (CellStatus.Empty, null);
+            Destroy(t);
         }
 
         public void Skill(Tower t)
@@ -116,10 +136,26 @@ namespace Source.Game.Controllers
             
         }
 
+        private (int x, int y) FindTowerXy(Tower t)
+        {
+            var tx = 0;
+            var ty = 0;
+
+            foreach (var x in _accessTable.Keys)
+            foreach (var y in _accessTable[x].Keys)
+            {
+                if (_accessTable[x][y].tower != t) continue;
+                tx = x;
+                ty = y;
+                break;
+            }
+
+            return (tx, ty);
+        }
+
         private void CreateGhost()
         {
             _ghost = new GameObject("_tower_placer_ghost_");
-            _ghostBase = CreateGhostSprite(_ghost, "_base_", 0f);
             _ghostHead = CreateGhostSprite(_ghost, "_head_", -.5f);
         }
 
@@ -171,7 +207,7 @@ namespace Source.Game.Controllers
             var rH = (maxY - minY) + 1;
             
             _grid = new (CellStatus status, Tower tower)[rW, rH];
-            _quickAccessTable = new Dictionary<int, Dictionary<int, (CellStatus status, Tower tower)>>();
+            _accessTable = new Dictionary<int, Dictionary<int, (CellStatus status, Tower tower)>>();
 
             _qaShift = new Vector2(minX, minY);
             
@@ -185,28 +221,27 @@ namespace Source.Game.Controllers
                 
                 _grid[x, y] = (status, null);
                 
-                if (!_quickAccessTable.ContainsKey(xQ))
-                    _quickAccessTable[xQ] = new Dictionary<int, (CellStatus status, Tower tower)>();
+                if (!_accessTable.ContainsKey(xQ))
+                    _accessTable[xQ] = new Dictionary<int, (CellStatus status, Tower tower)>();
 
-                if (!_quickAccessTable[xQ].ContainsKey(yQ))
-                    _quickAccessTable[xQ][yQ] = _grid[x, y];
+                if (!_accessTable[xQ].ContainsKey(yQ))
+                    _accessTable[xQ][yQ] = _grid[x, y];
             }
 
         }
 
         private void CreateTower(TowerData data, int x, int y)
         {
-            if (_quickAccessTable[x][y].status != CellStatus.Empty) return;
+            if (_accessTable[x][y].status != CellStatus.Empty) return;
 
             if (!_gc.CResource.ChangeCoin(-data.Price)) return;
             
             var tower = Instantiate(towerPrefab, towerContainer).GetComponent<Tower>();
-            tower.Setup(_gc.CWave, this, data);
+            tower.Setup(_gc.CWave, data);
             tower.transform.position = new Vector3(x, y, -.5f);
 
-            _quickAccessTable[x][y] = (CellStatus.Tower, tower);
+            _accessTable[x][y] = (CellStatus.Tower, tower);
             _grid[(int)(x - _qaShift.x), (int)(y - _qaShift.y)] = (CellStatus.Tower, tower);
-
         }
     }
 }

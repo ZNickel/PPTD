@@ -1,82 +1,119 @@
-using System;
 using Source.Event;
 using Source.Game.Controllers;
 using Source.Game.Entity;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Source.UI.Hud
 {
     public class TowerPopUp : MonoBehaviour
     {
-        private static readonly int AHashShow = Animator.StringToHash("Show");
+        [SerializeField] private TMP_Text upgradePrice;
+        [SerializeField] private Image upgradeImage;
+        [SerializeField] private TMP_Text sellPrice;
+        [SerializeField] private TMP_Text level;
+
+        [SerializeField] private Color normal;
+        [SerializeField] private Color inactive;
+        [SerializeField] private Color error;
         
+        private static readonly int HashShow = Animator.StringToHash("Show");
+
+        private ResourceController _resourceController;
+        private RectTransform _rt;
         private Animator _animator;
-        private RectTransform _rectTransform;
-        
-        private TowerController _tc;
-        private Tower _t;
-        
-        private bool _isVisible = false;
+        private Camera _cam;
+
+        private Vector3 _offset;
+        private bool _isOpened;
+
+        private TowerController _towerController;
+        private Tower _target;
         
         private void Awake()
         {
+            _rt = GetComponent<RectTransform>();
             _animator = GetComponent<Animator>();
-            _rectTransform = GetComponent<RectTransform>();
-            _animator.SetBool(AHashShow, false);
+            _animator.SetBool(HashShow, false);
             UIEventBus.Instance.EventShowTowerPopup.AddListener(Show);
             UIEventBus.Instance.EventHideTowerPopup.AddListener(Hide);
         }
 
-        private void Show(TowerController tc, float x, float y, Tower t)
+        private void Start()
         {
-            if (_isVisible) return;
-            if (_tc) _tc.ShowenMenu = true;
-            if (t == _t)
+            _resourceController = GameObject.FindWithTag("GameController").GetComponent<GameController>().CResource;
+            _cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+            _offset = _rt.sizeDelta / -2f;
+        }
+
+        private void Show(TowerController tc, Tower t)
+        {
+            Debug.Log(t);
+            
+            _towerController = tc;
+            
+            if (t == null || _target == t)
             {
                 Hide();
                 return;
             }
-                
-            _isVisible = true;
-            _rectTransform.anchoredPosition = new Vector2(x, y);
-            _tc = tc;
-            _t = t;
-            _animator.SetBool(AHashShow, true);
+            
+            _isOpened = true;
+
+            _rt.anchoredPosition = _cam.WorldToScreenPoint(t.transform.position) + _offset;
+            _target = t;
+            
+            _animator.SetBool(HashShow, true);
+            UpdateTextValues(false);
         }
+
+        private void LateUpdate() => UpdateTextValues(true);
 
         private void Hide()
         {
-            if (_tc) _tc.ShowenMenu = false;
-            _isVisible = false;
-            _tc = null;
-            _t = null;
-            _animator.SetBool(AHashShow, false);
+            if (!_isOpened) return;
+            _isOpened = false;
+            _target = null;
+            _animator.SetBool(HashShow, false);
+        }
+        
+        public void UseSkill()
+        {
+            if (!_target) return;
+            _towerController.Skill(_target);
+            Hide();
+        }
+        
+        public void LevelUp()
+        {
+            if (!_target) return;
+            _towerController.LevelUp(_target);
+            UpdateTextValues(false);
+        }
+        
+        public void Sell()
+        {
+            if (!_target) return;
+            _towerController.Sell(_target);
+            Hide();
         }
 
-        public void Handle_Sell()
+        private void UpdateTextValues(bool upgradeOnly)
         {
-            _tc.ShowenMenu = false;
-            UIEventBus.Instance.Trigger_EventHideTowerPopup();
-        }
+            if (!_target) return;
 
-        public void Handle_LevelUp()
-        {
-            Debug.Log("LvlUp s1");
-            if (!_t || !_tc || !_isVisible) return;
-            Debug.Log("LvlUp s2");
-            _tc.LevelUp(_t);
-            Debug.Log("LvlUp s3");
-        }
+            var coins = _resourceController.Coins;
+            var price = _target.Data.LvlUpPrice(_target.Level + 1);
+            
+            var isMaxLevel = _target.Level >= _target.Data.LevelCount;
 
-        public void Handle_Skill()
-        {
-            if (!_t || !_tc || !_isVisible) return;
-            _tc.Skill(_t);
-        }
+            upgradePrice.text = isMaxLevel ? "---" : $"-{price}";
+            upgradePrice.color = upgradeImage.color = isMaxLevel ? inactive : price <= coins ? normal : error;
 
-        private void Handle_HideEnd()
-        {
-            _rectTransform.anchoredPosition = new Vector2(-10000, -10000);
+            if (upgradeOnly) return;
+            level.text = $"{_target.Level}";
+            sellPrice.text = $"+{_target.Data.SellPrice(_target.Level)}";
         }
     }
 }

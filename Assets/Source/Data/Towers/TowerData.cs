@@ -40,8 +40,12 @@ namespace Source.Data.Towers
             return p;
         }
 
-        public int SellPrice(int lvl) =>
-            (int)(Price * sellPriceFactor);
+        public int SellPrice(int lvl)
+        {
+            var totalPrice = basePrice;
+            for (var i = 0; i < lvl; i++) totalPrice += LvlUpPrice(i);
+            return Mathf.FloorToInt(totalPrice * sellPriceFactor);
+        }
 
         #endregion
 

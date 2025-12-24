@@ -5,11 +5,11 @@ namespace Source.Game.Controllers
 {
     public class ResourceController : MonoBehaviour
     {
-        private int Coins { get; set; }
+        public int Coins { get; private set; }
 
-        private int Power { get; set; }
+        public int Power { get; private set; }
 
-        private int Health { get; set; }
+        public int Health { get; private set; }
 
         public void Setup(int startCoins, int startPower, int startHealth)
         {
