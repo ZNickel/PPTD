@@ -15,6 +15,8 @@ namespace Source.Game.Controllers
         public TowerController CTowers { get; private set; }
         public ClickController CClick { get; private set; }
         public WaveController CWave { get; private set; }
+
+        public LevelData LevelData => levelGrid.CurrentLevelData;
         
         private void Awake()
         {
@@ -39,7 +41,6 @@ namespace Source.Game.Controllers
             
             CResource.Setup(ld.StartCoins, ld.StartPower, ld.StartHealth);
             CTowers.Setup(ld.Types, ld.Width, ld.Height);
-
             CWave.Setup(ld.Waves, ld.Ways);
         }
     }
