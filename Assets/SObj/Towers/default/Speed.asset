@@ -22,7 +22,7 @@ MonoBehaviour:
   levelCount: 5
   bullet: {fileID: 2109177322580342558, guid: bc9f4f4ed3b703c4e98635e5aca023e8, type: 3}
   skill: {fileID: 11400000, guid: 4d66e308fd5591f419fd8d386c6473da, type: 2}
-  targetSelectBehaviour: 0
+  targetSelectBehaviour: 1
   cascadeEffects: 0
   effects:
   - {fileID: 11400000, guid: ba28a5bbef0b8804cbd713f640593bd7, type: 2}

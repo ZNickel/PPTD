@@ -19,13 +19,16 @@ namespace Source.Game.Entity.Bullets
         {
             transform.position += _dir * (Speed * Time.fixedDeltaTime);
 
-            if ((transform.position - From).magnitude < 144f)
+            if ((transform.position - From).magnitude > 64f)
             {
                 _hit = false;
                 Destroy(gameObject);
             }
         }
 
-        private void OnDestroy() => SuccessAction?.Invoke();
+        private void OnDestroy()
+        {
+            if (_hit) SuccessAction?.Invoke();
+        }
     }
 }
