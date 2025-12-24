@@ -140,101 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TapBar_Bg
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 112
-        width: 112
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 259187fadc27283f0800000000000000
-      internalID: -900030747782932142
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TapBar_Shadow
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 112
-        width: 112
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bd6aa0c0854f20050800000000000000
-      internalID: 5765439131983980251
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TapBar_Border
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 112
-        width: 112
-        height: 524
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2f2ba1d2c229259d0800000000000000
-      internalID: -2787004500955974926
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TapBar_Filler_Top
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 598
-        width: 112
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb4a695f250968c70800000000000000
-      internalID: 8973017993564300476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TapIcon_Bg
+      name: TapBar_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 112
-        height: 112
+        width: 80
+        height: 422
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,20 +155,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e206da430a3f9da4298ce1de7483eb5d
-      internalID: -957687109
+      spriteID: cd43a2fcee9940c4daa831201370dfe1
+      internalID: -1951956550
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TapIcon_Icon
+      name: TapBar_1
       rect:
         serializedVersion: 2
-        x: 112
+        x: 80
         y: 0
-        width: 112
-        height: 112
+        width: 80
+        height: 422
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3cb080b31f16f8438d41679c7859987
-      internalID: 517107830
+      spriteID: 9d8a0327cd7b12f44a81882883252bb1
+      internalID: 1115945109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TapIcon_Shadow
+      name: TapBar_2
       rect:
         serializedVersion: 2
-        x: 224
+        x: 160
         y: 0
-        width: 112
-        height: 112
+        width: 80
+        height: 422
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 292e071e832da5a439fad13943e0b3e9
-      internalID: 1344437969
+      spriteID: 5a2ece87b399d8641856a3cadbde3c67
+      internalID: -913464502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TapIcon_Border
+      name: TapBar_3
       rect:
         serializedVersion: 2
-        x: 336
+        x: 240
         y: 0
-        width: 112
-        height: 112
+        width: 80
+        height: 422
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,52 +221,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca6f305909bf5cd4bb416fc445720e53
-      internalID: -1450003697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TapBar_Filler_Mid
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 566
-        width: 112
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31b24b1143d6e5e4386547222ff06b37
-      internalID: -2090665242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TapBar_Filler_Bottom
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 534
-        width: 112
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e7169862aeec6254fb051651dcbeb639
-      internalID: -1825082358
+      spriteID: 63503053185fcce4a8939b8e3882bc06
+      internalID: 1832569830
       vertices: []
       indices: 
       edges: []
@@ -373,18 +241,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":112.0,"y":636.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":1.0},"gridSpriteSize":{"x":80.0,"y":422.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      TapBar_Bg: -900030747782932142
-      TapBar_Border: -2787004500955974926
-      TapBar_Filler_Bottom: -1825082358
-      TapBar_Filler_Mid: -2090665242
-      TapBar_Filler_Top: 8973017993564300476
-      TapBar_Shadow: 5765439131983980251
-      TapIcon_Bg: -957687109
-      TapIcon_Border: -1450003697
-      TapIcon_Icon: 517107830
-      TapIcon_Shadow: 1344437969
+      TapBar_0: -1951956550
+      TapBar_1: 1115945109
+      TapBar_2: -913464502
+      TapBar_3: 1832569830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

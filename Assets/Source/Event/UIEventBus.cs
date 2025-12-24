@@ -12,8 +12,8 @@ namespace Source.Event
         private static UIEventBus _instance;
         public static UIEventBus Instance => _instance ??= new UIEventBus();
 
-        // public UnityEvent<MouseClickData> EventMouseClick { get; } = new ();
-        // public void Trigger_EventMouseClick(MouseClickData d) => EventMouseClick.Invoke(d);
+        public UnityEvent EventMouseClick { get; } = new ();
+        public void Trigger_EventMouseClick() => EventMouseClick.Invoke();
         
         public UnityEvent<float> EventClickPowerChanged { get; } = new ();
         public void Trigger_EventClickPowerChanged(float v) => EventClickPowerChanged.Invoke(v);

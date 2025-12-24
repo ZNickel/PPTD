@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using Source.Data.Towers;
+using Source.Event;
 using Source.Game.Controllers;
 using Source.Game.Effects;
 using Source.Game.Entity.Bullets;
@@ -24,6 +24,8 @@ namespace Source.Game.Entity
         private float _elapsed;
 
         private bool _everyShotUpdate;
+
+        private float _boost;
         
         public void Setup(WaveController wc, TowerData d)
         {
@@ -35,12 +37,13 @@ namespace Source.Game.Entity
             _effectBuilder.Setup(_waveController);
             _targets = new List<Enemy>();
             _everyShotUpdate = EveryShotUpdate();
+            UIEventBus.Instance.EventClickPowerChanged.AddListener(boost => _boost = boost);
         }
 
         private void FixedUpdate()
         {
             _elapsed += Time.fixedDeltaTime;
-            if (_elapsed < 1f / _stats.AtkSpeed) return;
+            if (_elapsed < 1f / Data.GetBoostedAtkSpeed(_stats.AtkSpeed, _boost)) return;
             _elapsed = 0;
             
             TryUpdateTarget();
@@ -57,8 +60,8 @@ namespace Source.Game.Entity
                     _targets[0], 
                     transform.position, 
                     _targets[0].transform.position, 
-                    _stats.ProjectileSpeed, 
-                    _stats.Damage,
+                    _stats.ProjectileSpeed,
+                    Data.GetBoostedDamage(_stats.Damage, _boost),
                     () => _effectBuilder.Launch(effect, _targets)
                 );
         }
@@ -81,7 +84,7 @@ namespace Source.Game.Entity
             
             _targets = _waveController.Selector.Get(
                 transform.position, 
-                _stats.Range, 
+                Data.GetBoostedRange(_stats.Range, _boost), 
                 0, 
                 0, 
                 Data.TargetSelectBehaviour

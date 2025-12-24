@@ -78,15 +78,11 @@ namespace Source.Data.Towers
         [Header("Boost")] 
         [SerializeField] private float boostRange = 1f;
         [SerializeField] private float boostAtkSpeed = 1f;
-        [SerializeField] private float boostFacProjSpeed = 1f;
-        [SerializeField] private float boostHp = 1f;
         [SerializeField] private float boostDamage = 1f;
-        
-        public float BoostRange => boostRange;
-        public float BoostAtkSpeed => boostAtkSpeed;
-        public float BoostFacProjSpeed => boostFacProjSpeed;
-        public float BoostHp => boostHp;
-        public float BoostDamage => boostDamage;
+
+        public float GetBoostedRange(float v, float boost) => RecalcBoost(v, boostRange, boost);
+        public float GetBoostedAtkSpeed(float v, float boost) => RecalcBoost(v, boostAtkSpeed, boost);
+        public float GetBoostedDamage(float v, float boost) => RecalcBoost(v, boostDamage, boost);
         
         #endregion
 
@@ -115,5 +111,8 @@ namespace Source.Data.Towers
             for (var i = 1; i < n; i++) x *= fac;
             return x;
         }
+
+        private static float RecalcBoost(float raw, float factor, float boost) => 
+            Mathf.Lerp(raw, raw * factor, boost);
     }
 }

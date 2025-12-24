@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Source.Event;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -14,6 +15,7 @@ namespace Source.UI.Hud.PopUpNumbers
         private Animator _animator;
         private Stack<PopUpNumber> _freeStack;
         private bool _isPlaying;
+        private float _boost;
 
         public RectTransform Rt { get; private set; }
 
@@ -21,6 +23,7 @@ namespace Source.UI.Hud.PopUpNumbers
         {
             _animator = GetComponent<Animator>();
             Rt = GetComponent<RectTransform>();
+            UIEventBus.Instance.EventClickPowerChanged.AddListener(boost => _boost = boost);
         }
 
         public void Show(int value, Stack<PopUpNumber> freeStack, float speed)
@@ -32,6 +35,7 @@ namespace Source.UI.Hud.PopUpNumbers
             _animator.SetTrigger(HashPlay);
             _animator.SetInteger(HashType, Random.Range(0, 6));
             _isPlaying = true;
+            text.color = Color.Lerp(text.color, Color.red, _boost);
         }
 
         public void Handle_AnimationEnd()

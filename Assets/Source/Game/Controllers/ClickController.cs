@@ -26,13 +26,13 @@ namespace Source.Game.Controllers
         private void Awake()
         {
             _clickPower = 0f;
-            // UIEventBus.Instance.EventMouseClick.AddListener(Click);
+            UIEventBus.Instance.EventMouseClick.AddListener(Click);
         }
         
-        // private void Click(MouseClickData _)
-        // {
-        //     ClickPower += curve.Evaluate(ClickPower) * increment;
-        // }
+        private void Click()
+        {
+            ClickPower += curve.Evaluate(ClickPower) * increment;
+        }
         
         private void FixedUpdate()
         {

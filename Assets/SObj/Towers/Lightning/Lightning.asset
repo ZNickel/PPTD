@@ -40,8 +40,6 @@ MonoBehaviour:
   lvlFacProjSpeed: 1
   lvlFacHp: 1
   lvlFacDamage: 1.4
-  boostRange: 1.5
-  boostAtkSpeed: 1.5
-  boostFacProjSpeed: 1.5
-  boostHp: 1.5
-  boostDamage: 1.5
+  boostRange: 1
+  boostAtkSpeed: 2
+  boostDamage: 1.25
