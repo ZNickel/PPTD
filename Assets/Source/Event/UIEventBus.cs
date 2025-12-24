@@ -2,6 +2,7 @@ using Source.Data;
 using Source.Data.Towers;
 using Source.Game.Controllers;
 using Source.Game.Entity;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Source.Event
@@ -58,6 +59,13 @@ namespace Source.Event
         
         public UnityEvent<Enemy, float> UpdateEnemyHp { get; } = new();
         public void Trigger_UpdateEnemyHp(Enemy e, float hpNormalized) => UpdateEnemyHp.Invoke(e, hpNormalized);
+        
+        #endregion
+
+        #region  PupUp numbers
+
+        public UnityEvent<int, Transform> ShowPopupNumber { get; } = new();
+        public void Trigger_ShowPopupNumber(int value, Transform t) => ShowPopupNumber.Invoke(value, t);
         
         #endregion
     }

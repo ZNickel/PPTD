@@ -67,7 +67,9 @@ namespace Source.Game.Entity
             if (_currentHp < 0f) return;
             
             var old = _currentHp;
+            
             _currentHp -= damage;
+            UIEventBus.Instance.Trigger_ShowPopupNumber(Mathf.RoundToInt(damage), transform);
 
             if (Mathf.Approximately(old, data.Hp) && _currentHp < data.Hp)
                 UIEventBus.Instance.Trigger_AttachHpBar(this);
