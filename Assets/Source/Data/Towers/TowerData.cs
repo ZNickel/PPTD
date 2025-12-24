@@ -1,3 +1,4 @@
+using Source.Game.Entity.Bullets;
 using UnityEngine;
 
 namespace Source.Data.Towers
@@ -11,15 +12,14 @@ namespace Source.Data.Towers
         [SerializeField] private string tName;
         [SerializeField] private int levelCount;
         [SerializeField] private Sprite[] headSprites;
-        [SerializeField] private Sprite bulletSprite;
+        [SerializeField] private UniBullet bullet;
         [SerializeField] private TowerSkillParams skill;
 
         public TowerSkillParams Skill => skill;
         public string Tname => tName;
         public int LevelCount => levelCount;
         public Sprite[] HeadSprites => headSprites;
-        public Sprite BulletSprite => bulletSprite;
-
+        public UniBullet BulletPrefab => bullet;
         #endregion
 
         #region Economy

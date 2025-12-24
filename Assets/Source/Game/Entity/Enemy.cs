@@ -87,10 +87,9 @@ namespace Source.Game.Entity
         {
             var o = other.gameObject;
             if (!o.CompareTag("Bullet")) return;
-            var b = o.GetComponent<Bullet>();
+            var b = o.GetComponent<UniBullet>();
             Destroy(o);
             Hit(b.Damage);
         }
-
     }
 }

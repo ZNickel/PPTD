@@ -73,8 +73,6 @@ namespace Source.Game.Controllers
 
             var (x, y, ogo, lmb, rmb) = GetMouseInfo();
             
-            if (lmb || rmb) Debug.Log(ogo);
-            
             var inBounds = _accessTable.ContainsKey(x) && _accessTable[x].ContainsKey(y);
 
             if (TcMode == Mode.Select) SelectTower(x, y, inBounds, ogo, lmb, rmb);

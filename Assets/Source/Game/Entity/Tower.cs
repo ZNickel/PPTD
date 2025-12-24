@@ -8,7 +8,6 @@ namespace Source.Game.Entity
     public class Tower : MonoBehaviour
     {
         [SerializeField] private SpriteRenderer srHead;
-        [SerializeField] private GameObject bullet;
 
         public TowerData Data { get; private set; }
 
@@ -37,13 +36,15 @@ namespace Source.Game.Entity
             _elapsed += Time.fixedDeltaTime;
             if (_elapsed < 1f / _stats.AtkSpeed) return;
             _elapsed = 0;
-
-            var o = Instantiate(bullet);
-            var b = o.GetComponent<Bullet>();
-            var dir = _target.transform.position - transform.position;
-            b.Setup(Data.BulletSprite, _stats.Damage, _stats.ProjectileSpeed, transform.position, dir);
             
-            Debug.DrawRay(transform.position, dir, Color.orange, 0.025f);
+            CreateBullet();
+        }
+
+        private void CreateBullet()
+        {
+            Instantiate(Data.BulletPrefab)
+                .GetComponent<UniBullet>()
+                .Setup(_target, transform.position, _target.transform.position, _stats.ProjectileSpeed, _stats.Damage);
         }
         
         public void LevelUp()

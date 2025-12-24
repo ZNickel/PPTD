@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 1933685723217348330, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: -2971098438283475780, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: -850531169408145049, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
-  bulletSprite: {fileID: -568163705, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  bullet: {fileID: 2109177322580342558, guid: bc9f4f4ed3b703c4e98635e5aca023e8, type: 3}
   skill: {fileID: 11400000, guid: 20d6c5fabd8ab514092f217419657f53, type: 2}
   basePrice: 125
   baseLvlUpPrice: 60

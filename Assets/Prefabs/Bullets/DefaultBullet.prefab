@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4809630010128569276}
   - component: {fileID: 2109177322580342558}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: DefaultBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,15 +81,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 9009940924685856453, guid: 85aca3a7754d7bb4b8e46c6225912658, type: 3}
+  m_Sprite: {fileID: -511288751, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.7, y: 0.7}
+  m_Size: {x: 0.4, y: 0.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &4809630010128569276
@@ -140,3 +140,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9ceef14657fd34682ab6b8d6bdea89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.Bullets.Bullet
+  sprite: {fileID: -511288751, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
