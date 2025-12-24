@@ -68,5 +68,12 @@ namespace Source.Event
         public void Trigger_ShowPopupNumber(int value, Transform t) => ShowPopupNumber.Invoke(value, t);
         
         #endregion
+
+        #region Tower skill launcher
+
+        public UnityEvent<Tower> EnableSkillLauncher { get; } = new();
+        public void Trigger_EnableSkillLauncher(Tower t) => EnableSkillLauncher.Invoke(t);
+
+        #endregion
     }
 }

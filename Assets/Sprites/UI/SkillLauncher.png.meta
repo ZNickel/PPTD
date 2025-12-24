@@ -1,0 +1,370 @@
+fileFormatVersion: 2
+guid: 5c646ef74fcda1f44a69c06725da1760
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3855012539277533847
+    second: SkillLauncher_0
+  - first:
+      213: -3578088655244994984
+    second: SkillLauncher_1
+  - first:
+      213: -2797518932531056569
+    second: SkillLauncher_2
+  - first:
+      213: -5071244716236935097
+    second: SkillLauncher_3
+  - first:
+      213: -3544810655365342341
+    second: SkillLauncher_4
+  - first:
+      213: -3717160014325700755
+    second: SkillLauncher_5
+  - first:
+      213: -8847908917766697064
+    second: SkillLauncher_6
+  - first:
+      213: -6198153922413290944
+    second: SkillLauncher_7
+  - first:
+      213: 4053889795356383458
+    second: SkillLauncher_8
+  - first:
+      213: 6305989879597721898
+    second: SkillLauncher_9
+  - first:
+      213: 392262185186556763
+    second: SkillLauncher_10
+  - first:
+      213: -241707044634357207
+    second: SkillLauncher_11
+  - first:
+      213: 8794347089143579054
+    second: SkillLauncher_12
+  - first:
+      213: 1960127440491261558
+    second: SkillLauncher_13
+  - first:
+      213: -466818210091911146
+    second: SkillLauncher_14
+  - first:
+      213: 4779560771827107086
+    second: SkillLauncher_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SkillLauncher_btn_
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 380
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7926050da71cf7530800000000000000
+      internalID: 3855012539277533847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_btn_icon_0
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 380
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85654495353185ec0800000000000000
+      internalID: -3578088655244994984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_btn_icon_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 228
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7407e0e4a573d29d0800000000000000
+      internalID: -2797518932531056569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_btn_icon_2
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 228
+        width: 152
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740fe979cc15f99b0800000000000000
+      internalID: -5071244716236935097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_bg
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 71
+        width: 304
+        height: 154
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea1c4e7451ccb0a70800000000000000
+      internalID: 8794347089143579054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_bar_mask
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 208
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e2afc9585c33b10800000000000000
+      internalID: 1960127440491261558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_bar_bg
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 23
+        width: 208
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 618b9ccaf478589f0800000000000000
+      internalID: -466818210091911146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SkillLauncher_bar_shadow
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 208
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e058523e239645240800000000000000
+      internalID: 4779560771827107086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: a8c8b858c4642e24d8474fb7da28d7f3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SkillLauncher_10: 392262185186556763
+      SkillLauncher_11: -241707044634357207
+      SkillLauncher_4: -3544810655365342341
+      SkillLauncher_5: -3717160014325700755
+      SkillLauncher_6: -8847908917766697064
+      SkillLauncher_7: -6198153922413290944
+      SkillLauncher_8: 4053889795356383458
+      SkillLauncher_9: 6305989879597721898
+      SkillLauncher_bar_bg: -466818210091911146
+      SkillLauncher_bar_mask: 1960127440491261558
+      SkillLauncher_bar_shadow: 4779560771827107086
+      SkillLauncher_bg: 8794347089143579054
+      SkillLauncher_btn_: 3855012539277533847
+      SkillLauncher_btn_icon_0: -3578088655244994984
+      SkillLauncher_btn_icon_1: -2797518932531056569
+      SkillLauncher_btn_icon_2: -5071244716236935097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

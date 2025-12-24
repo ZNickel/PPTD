@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6316224697054931081}
   - component: {fileID: 8097918553888779361}
   - component: {fileID: 4809630010128569276}
-  - component: {fileID: 396305531716452422}
+  - component: {fileID: 2109177322580342558}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -89,7 +89,7 @@ SpriteRenderer:
   m_Size: {x: 0.7, y: 0.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &4809630010128569276
@@ -128,7 +128,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.01, y: 0.01}
   m_Radius: 0.065
---- !u!114 &396305531716452422
+--- !u!114 &2109177322580342558
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7446522942548953120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65093a570f114b30a0b646ac6498ed89, type: 3}
+  m_Script: {fileID: 11500000, guid: dd9ceef14657fd34682ab6b8d6bdea89, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.Bullet
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.Bullets.Bullet

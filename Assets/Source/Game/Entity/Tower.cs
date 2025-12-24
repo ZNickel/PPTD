@@ -1,5 +1,6 @@
 using Source.Data.Towers;
 using Source.Game.Controllers;
+using Source.Game.Entity.Bullets;
 using UnityEngine;
 
 namespace Source.Game.Entity

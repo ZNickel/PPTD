@@ -133,7 +133,11 @@ namespace Source.Game.Controllers
 
         public void Skill(Tower t)
         {
+            var cost = t.Data.Skill.PowerCost;
+            var canCast = _gc.CResource.ChangePower(-cost);
+            if (!canCast) return;
             
+            UIEventBus.Instance.Trigger_EnableSkillLauncher(t);
         }
 
         private (int x, int y) FindTowerXy(Tower t)

@@ -9,6 +9,7 @@ namespace Source.Data.Towers
         [SerializeField] private TowerSkillType skillType;
         [SerializeField] private int clickCount = 32;
         [SerializeField] private float clickTime = 5f;
+        [SerializeField] private int powerCost = 10;
 
         [Header("Show in UI")]
         [SerializeField] private bool showRadius = true;
@@ -50,6 +51,7 @@ namespace Source.Data.Towers
         public TowerSkillType SkillType => skillType;
         public int ClickCount => clickCount;
         public float ClickTime => clickTime;
+        public int PowerCost => powerCost;
         
         public float GetDamage(int level, float perf) => CalcPerf(damage, lvlDamage, level, perfDamage, perf);
         public float GetRadius(int level, float perf) => CalcPerf(radius, lvlRadius, level, perfRadius, perf);

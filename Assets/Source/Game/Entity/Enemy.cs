@@ -1,5 +1,6 @@
 using Source.Data.Way;
 using Source.Event;
+using Source.Game.Entity.Bullets;
 using UnityEngine;
 using UnityEngine.Events;
 

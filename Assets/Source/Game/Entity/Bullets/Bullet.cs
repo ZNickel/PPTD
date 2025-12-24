@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Source.Game.Entity
+namespace Source.Game.Entity.Bullets
 {
     public class Bullet : MonoBehaviour
     {
