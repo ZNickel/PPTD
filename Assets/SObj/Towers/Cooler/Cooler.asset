@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
   m_Name: Cooler
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
-  tName: Cooler
-  levelCount: 5
   headSprites:
   - {fileID: 5316636524980310899, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: -2564645547722657412, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 1933685723217348330, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: -2971098438283475780, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: -850531169408145049, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  tName: Cooler
+  levelCount: 5
   bullet: {fileID: 2109177322580342558, guid: bc9f4f4ed3b703c4e98635e5aca023e8, type: 3}
   skill: {fileID: 11400000, guid: 20d6c5fabd8ab514092f217419657f53, type: 2}
+  targetSelectBehaviour: 0
+  cascadeEffects: 0
+  effects:
+  - {fileID: 11400000, guid: f621decf71103dc4f8972c9475ab829a, type: 2}
   basePrice: 125
   baseLvlUpPrice: 60
   lvlUpPriceFactor: 1.5

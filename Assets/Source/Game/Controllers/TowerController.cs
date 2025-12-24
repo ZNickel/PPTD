@@ -126,7 +126,7 @@ namespace Source.Game.Controllers
             
             _accessTable[x][y] = (CellStatus.Empty, null);
             _grid[(int)(x - _qaShift.x), (int)(y - _qaShift.y)] = (CellStatus.Empty, null);
-            Destroy(t);
+            Destroy(t.gameObject);
         }
 
         public void Skill(Tower t)

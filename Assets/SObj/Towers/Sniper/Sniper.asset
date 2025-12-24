@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
-  tName: 
-  levelCount: 5
   headSprites:
   - {fileID: -2569443751634379518, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 4437260802728612726, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 5933539458087897434, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 7555520161038418330, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 1294796608806036912, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  tName: Sniper
+  levelCount: 5
   bullet: {fileID: 4676773993125944814, guid: da96a90573cef4e40a8f3d9f7d84ece7, type: 3}
   skill: {fileID: 11400000, guid: 586d5483e306d1f4d998d768fdc387a9, type: 2}
+  targetSelectBehaviour: 0
+  cascadeEffects: 0
+  effects:
+  - {fileID: 11400000, guid: adc2b5fee557a584abab000b34eea740, type: 2}
   basePrice: 100
   baseLvlUpPrice: 50
   lvlUpPriceFactor: 1.5

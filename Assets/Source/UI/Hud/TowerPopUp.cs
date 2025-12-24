@@ -49,8 +49,6 @@ namespace Source.UI.Hud
 
         private void Show(TowerController tc, Tower t)
         {
-            Debug.Log(t);
-            
             _towerController = tc;
             
             if (t == null || _target == t)

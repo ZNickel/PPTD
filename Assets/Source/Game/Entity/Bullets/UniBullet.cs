@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Source.Game.Entity.Bullets
 {
@@ -9,14 +10,16 @@ namespace Source.Game.Entity.Bullets
         protected float Speed { get; private set; }
         protected Vector3 From { get; private set; }
         protected Vector3 To { get; private set; }
-
-        public void Setup(Enemy target, Vector3 from, Vector3 to, float speed, float dmg)
+        protected UnityAction SuccessAction { get; private set; }
+        
+        public void Setup(Enemy target, Vector3 from, Vector3 to, float speed, float dmg, UnityAction successAction = null)
         {
             Damage = dmg;
             Speed = speed;
             From = from;
             To = to;
             Target = target;
+            SuccessAction = successAction;
             Launch();
         }
 

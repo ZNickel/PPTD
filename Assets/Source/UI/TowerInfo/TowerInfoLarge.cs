@@ -23,7 +23,7 @@ namespace Source.UI.TowerInfo
         [SerializeField] private TMP_Text projectileSpeed;
         [SerializeField] private TMP_Text hp;
 
-        [Header("Skill"), SerializeField] private TMP_Text skillName;
+        [Header("effect"), SerializeField] private TMP_Text skillName;
         [SerializeField] private TMP_Text skillType;
         [SerializeField] private TMP_Text skillDamage;
         [SerializeField] private TMP_Text skillRadius;
@@ -99,17 +99,17 @@ namespace Source.UI.TowerInfo
             projectileSpeed.text = $"{Stats.ProjectileSpeed:N1}";
             hp.text = $"{Stats.Hp:N1}";
 
-            skillName.text = _data.Skill.SkillName;
-            skillType.text = _data.Skill.SkillType.ToString();
-            skillDamage.text = DeltaFormat(_data.Skill.GetDamageDelta(_level));
-            skillRadius.text = DeltaFormat(_data.Skill.GetRadiusDelta(_level));
-            skillRadius.gameObject.SetActive(_data.Skill.ShowRadius);
-            skillCount.text = DeltaFormat(_data.Skill.GetCountDelta(_level));
-            skillCount.gameObject.SetActive(_data.Skill.ShowCount);
-            skillTime.text = DeltaFormat(_data.Skill.GetTimeDelta(_level));
-            skillTime.gameObject.SetActive(_data.Skill.ShowTime);
-            skillClickCount.text = $"{_data.Skill.ClickCount:N1}";
-            skillClickTime.text = $"{_data.Skill.ClickTime:N1}";
+            // skillName.text = _data.Skill.SkillName;
+            // skillType.text = _data.Skill.SkillType.ToString();
+            // skillDamage.text = DeltaFormat(_data.Effects[0].GetDamage(_level));
+            // skillRadius.text = DeltaFormat(_data.Effects[0].GetRadius(_level));
+            // skillRadius.gameObject.SetActive(_data.Effects[0].ShowRadius);
+            // skillCount.text = DeltaFormat(_data.Effects[0].GetCount(_level));
+            // skillCount.gameObject.SetActive(_data.Effects[0].ShowCount);
+            // skillTime.text = DeltaFormat(_data.Effects[0].GetTime(_level));
+            // skillTime.gameObject.SetActive(_data.Effects[0].ShowTime);
+            // skillClickCount.text = $"{_data.Skill.ClickCount:N1}";
+            // skillClickTime.text = $"{_data.Skill.ClickTime:N1}";
         }
 
         private static string DeltaFormat((float a, float b) delta) =>

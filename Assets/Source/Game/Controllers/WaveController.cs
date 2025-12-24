@@ -27,12 +27,15 @@ namespace Source.Game.Controllers
         private float _timer;
 
         private List<Enemy>[] _alive;
+        
+        public EnemySelector Selector {get; private set;}
 
         private void Awake() => _gc = GetComponent<GameController>();
 
         public void Setup(WaveData[] waves, WayPackData ways)
         {
             _alive = new List<Enemy>[ways.Count];
+            Selector = new EnemySelector(_alive);
             for (var i = 0; i < ways.Count; i++) _alive[i] = new List<Enemy>();
             _waves = waves;
             _ways = ways;
@@ -123,45 +126,5 @@ namespace Source.Game.Controllers
         }
 
         private bool HasEnemies() => _alive.Any(list => list.Count > 0);
-
-        public Enemy GetNearestInRange(Vector3 pos, float range)
-        {
-            var lastD = range;
-            Enemy res = null; 
-            
-            foreach (var l in _alive)
-            foreach (var e in l)
-            {
-                if (e == null) continue;
-                
-                var d = Vector2.Distance(e.transform.position, pos);
-                if (d >= lastD) continue;
-                lastD = d;
-                res = e;
-            }
-
-            return res;
-        }
-        
-        public List<Enemy> GetAllInRange(Vector3 pos, float range)
-        {
-            var all = new List<Enemy>(); 
-            
-            foreach (var l in _alive)
-            foreach (var e in l)
-            {
-                var d = Vector2.Distance(e.transform.position, pos);
-                if (d > range) continue;
-                all.Add(e);
-            }
-
-            return all;
-        }
-
-        public List<Enemy> GetAllAroundNearest(Vector3 pos, float range, float range2)
-        {
-            var n = GetNearestInRange(pos, range);
-            return n ? GetAllInRange(n.transform.position, range2) : new List<Enemy>();
-        }
     }
 }

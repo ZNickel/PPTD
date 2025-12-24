@@ -49,7 +49,11 @@ namespace Source.Game.Entity.Bullets
 
         private void OnHit()
         {
-            if (Target) Target.Hit(Damage);
+            if (Target)
+            {
+                Target.Hit(Damage);
+                SuccessAction?.Invoke();
+            }
             Destroy(gameObject);
         }
     }

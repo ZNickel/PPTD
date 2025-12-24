@@ -9,28 +9,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee158ed8cee44479de64c4b3dd6ba63, type: 3}
-  m_Name: HeaterSkill
-  m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerSkillParams
-  skillName: Freeze
-  skillType: 3
-  clickCount: 32
-  clickTime: 5
+  m_Script: {fileID: 11500000, guid: 2c8f9428e6a94415a83afdbb6cb9ea42, type: 3}
+  m_Name: SniperEffect
+  m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerEffectParams
+  effectName: '-'
+  type: 0
+  targetSelectBehaviour: 0
+  showRadius: 1
+  showCount: 1
+  showTime: 1
   damage: 10
   radius: 2
   count: 3
   time: 1
   maxFalloff: 1
   minFalloff: 0.25
+  interval: 0.3333
   lvlDamage: 1.1
   lvlRadius: 1.1
   lvlCount: 1.1
   lvlTime: 1.1
   lvlMaxFall: 1.1
   lvlMinFall: 1.1
-  perfDamage: 0.25
-  perfRadius: 1
-  perfCount: 1
-  perfTime: 1
-  perfMaxFall: 1
-  perfMinFall: 1
+  lvlInterval: 1

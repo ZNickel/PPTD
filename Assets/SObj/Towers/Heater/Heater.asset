@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94581e926eac4ea78531b0af8d6c86e8, type: 3}
   m_Name: Heater
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.TowerData
-  tName: 
-  levelCount: 5
   headSprites:
   - {fileID: 7799012886133989794, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 4483475386754172309, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 5156937725889367176, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: -4364222465226718348, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 5248055235256235840, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
+  tName: Heater
+  levelCount: 5
   bullet: {fileID: 5232567223521870439, guid: 0215e6397e7134b49a836e652edc1508, type: 3}
   skill: {fileID: 11400000, guid: c61abc25cf1950142a70629fbac8de1f, type: 2}
+  targetSelectBehaviour: 2
+  cascadeEffects: 0
+  effects:
+  - {fileID: 11400000, guid: c9aaee0610a59154399a33ea6577a62d, type: 2}
   basePrice: 125
   baseLvlUpPrice: 60
   lvlUpPriceFactor: 1.5

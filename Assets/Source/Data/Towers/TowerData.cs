@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Source.Game.Effects;
 using Source.Game.Entity.Bullets;
 using UnityEngine;
 
@@ -6,20 +8,29 @@ namespace Source.Data.Towers
     [CreateAssetMenu(fileName = "TowerData", menuName = "Entities/Tower Data")]
     public class TowerData : ScriptableObject
     {
-        #region Setup
+        [Header("Struct")] 
+        [SerializeField] private Sprite[] headSprites;
         
-        [Header("Setup")] 
+        #region Main
+        
+        [Header("Main")] 
         [SerializeField] private string tName;
         [SerializeField] private int levelCount;
-        [SerializeField] private Sprite[] headSprites;
         [SerializeField] private UniBullet bullet;
         [SerializeField] private TowerSkillParams skill;
-
+        [SerializeField] private TargetSelectBehaviour targetSelectBehaviour = TargetSelectBehaviour.Nearest;
+        [SerializeField] private bool cascadeEffects;
+        [SerializeField] private List<TowerEffectParams> effects = new();
+        
         public TowerSkillParams Skill => skill;
         public string Tname => tName;
         public int LevelCount => levelCount;
         public Sprite[] HeadSprites => headSprites;
         public UniBullet BulletPrefab => bullet;
+        public TargetSelectBehaviour TargetSelectBehaviour => targetSelectBehaviour;
+        public bool CascadeEffects => cascadeEffects;
+        public List<TowerEffectParams> Effects => effects;
+        
         #endregion
 
         #region Economy

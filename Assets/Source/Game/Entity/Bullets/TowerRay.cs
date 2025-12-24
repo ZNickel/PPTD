@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -45,6 +44,7 @@ namespace Source.Game.Entity.Bullets
             SetAlpha(1f);
 
             Target.Hit(Damage);
+            SuccessAction?.Invoke();
 
             elapsed = 0f;
             while (elapsed < hideTime)
