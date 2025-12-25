@@ -14,7 +14,7 @@ namespace Source.Data.Towers
         [SerializeField] private bool showCount = true;
         [SerializeField] private bool showTime = true;
 
-        [Header("Effect TTP"), SerializeField, Range(.1f, 10f)]
+        [Header("Effect TTP"), SerializeField, Range(.1f, 50f)]
         private float damage = 30f;
 
         [SerializeField, Range(.1f, 10f)] private float radius = 2f;

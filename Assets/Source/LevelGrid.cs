@@ -11,6 +11,7 @@ namespace Source
         [Header("Struct")] 
         [SerializeField] private GameObject cellContainer;
         [SerializeField] private GameObject wayContainer;
+        [SerializeField] private bool forcedUseUnselectedData;
 
         [Header("Setup")] 
         [SerializeField] private LevelData levelData;
@@ -26,7 +27,7 @@ namespace Source
 
         private void Awake()
         {
-            if (selectedLevel != null && selectedLevel.lvlData != null) 
+            if (!forcedUseUnselectedData && selectedLevel != null && selectedLevel.lvlData != null) 
                 levelData = selectedLevel.lvlData;
         }
 

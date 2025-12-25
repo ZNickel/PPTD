@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 1680680199544230613, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 8488281129223400612, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
   - {fileID: 3923716718836267103, guid: 2d5d39cf708fc424d9aae70748ccb893, type: 3}
-  tName: 
+  tName: Lightning
   levelCount: 5
   bullet: {fileID: 2109177322580342558, guid: bc9f4f4ed3b703c4e98635e5aca023e8, type: 3}
   skill: {fileID: 11400000, guid: cf54de2fc71c3e044b5ae49b37ded689, type: 2}
@@ -32,7 +32,7 @@ MonoBehaviour:
   sellPriceFactor: 0.75
   range: 4
   atkSpeed: 1.5
-  projectileSpeed: 1
+  projectileSpeed: 6
   hp: 100
   damage: 15
   lvlFacRange: 1

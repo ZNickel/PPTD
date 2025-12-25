@@ -90,7 +90,7 @@ namespace Source.Data.Towers
 
         public TowerStats GetStats(int level)
         {
-            _stats ??= new TowerStats[levelCount];
+            _stats ??= new TowerStats[levelCount + 1];
 
             _stats[level] ??= new TowerStats(
                 CalcValue(range, lvlFacRange, level),

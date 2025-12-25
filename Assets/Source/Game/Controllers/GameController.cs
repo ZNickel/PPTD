@@ -1,5 +1,6 @@
 using System.Linq;
 using Source.Event;
+using Source.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -30,8 +31,7 @@ namespace Source.Game.Controllers
         private void End(bool win)
         {
             endScreen.SetActive(true);
-            var text = endScreen.GetComponentInChildren<TMP_Text>();
-            text.text = win ? "Win" : "Fail";
+            endScreen.GetComponent<EndScreen>()?.Show(win);
         }
 
         private void Start()

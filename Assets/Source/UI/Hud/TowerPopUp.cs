@@ -30,6 +30,8 @@ namespace Source.UI.Hud
 
         private TowerController _towerController;
         private Tower _target;
+
+        private bool IsMaxLevel => _target.Level >= _target.Data.LevelCount;
         
         private void Awake()
         {
@@ -85,7 +87,7 @@ namespace Source.UI.Hud
         
         public void LevelUp()
         {
-            if (!_target) return;
+            if (!_target || IsMaxLevel) return;
             _towerController.LevelUp(_target);
             UpdateTextValues(false);
         }
@@ -96,7 +98,7 @@ namespace Source.UI.Hud
             _towerController.Sell(_target);
             Hide();
         }
-
+        
         private void UpdateTextValues(bool upgradeOnly)
         {
             if (!_target) return;
@@ -104,10 +106,8 @@ namespace Source.UI.Hud
             var coins = _resourceController.Coins;
             var price = _target.Data.LvlUpPrice(_target.Level + 1);
             
-            var isMaxLevel = _target.Level >= _target.Data.LevelCount;
-
-            upgradePrice.text = isMaxLevel ? "---" : $"-{price}";
-            upgradePrice.color = upgradeImage.color = isMaxLevel ? inactive : price <= coins ? normal : error;
+            upgradePrice.text = IsMaxLevel ? "---" : $"-{price}";
+            upgradePrice.color = upgradeImage.color = IsMaxLevel ? inactive : price <= coins ? normal : error;
 
             if (upgradeOnly) return;
             level.text = $"{_target.Level}";

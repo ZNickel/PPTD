@@ -16,9 +16,24 @@ namespace Source.Game.Entity
         private float _currentHp;
         private WayData _wayData;
         private int _wpIndex;
+        private SpriteRenderer _sr;
 
         public EnemyData Data => data;
 
+        private float _debuff;
+        
+        public void AddDebuff(float v)
+        {
+            _debuff = v;
+            _sr.color = Color.blue;;
+        }
+        
+        public void CancelDebuff()
+        {
+            _debuff = 1f;
+            _sr.color = Color.white;
+        }
+        
         public void Setup(EnemyData d, WayData wayData, UnityAction dieAction, UnityAction doneAction)
         {
             _dieAction = dieAction;
@@ -29,8 +44,9 @@ namespace Source.Game.Entity
             _wpIndex = 0;
             done = false;
             transform.position = wayData[_wpIndex];
-            var sr = GetComponent<SpriteRenderer>();
-            sr.sprite = d.Sprite;
+            _sr = GetComponent<SpriteRenderer>();
+            _sr.sprite = d.Sprite;
+            _debuff = 1f;
         }
 
         private void Update()
@@ -53,7 +69,7 @@ namespace Source.Game.Entity
 
             var target = _wayData[_wpIndex];
 
-            var d = data.Speed * Time.deltaTime;
+            var d = data.Speed * _debuff * Time.deltaTime;
             var next = Vector2.MoveTowards(transform.position, target, d);
 
             var z = -.5f + d * .1f;
@@ -68,6 +84,8 @@ namespace Source.Game.Entity
             if (_currentHp < 0f) return;
             
             var old = _currentHp;
+
+            damage *= 1f / _debuff;
             
             _currentHp -= damage;
             UIEventBus.Instance.Trigger_ShowPopupNumber(Mathf.RoundToInt(damage), this);

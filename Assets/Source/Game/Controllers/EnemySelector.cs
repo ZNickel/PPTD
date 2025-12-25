@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Source.Data.Towers;
 using Source.Game.Entity;
 using UnityEngine;
@@ -21,7 +22,7 @@ namespace Source.Game.Controllers
                 TargetSelectBehaviour.MostPowerFull => MostPowerFull(pos, range),
                 TargetSelectBehaviour.AllAroundNearest => AllAroundNearest(pos, range, subRange, n),
                 TargetSelectBehaviour.AllInRange => AllInRange(pos, range),
-                TargetSelectBehaviour.ChainOfNearest => ChainOfNearest(pos, range, subRange, n),
+                TargetSelectBehaviour.ChainOfNearest => ChainOfNearest(pos, range, n),
                 _ => new List<Enemy>()
             };
         }
@@ -83,48 +84,35 @@ namespace Source.Game.Controllers
             return nearest;
         }
         
-        private List<Enemy> ChainOfNearest(Vector3 pos, float range, float subRange, int n)
+        private List<Enemy> ChainOfNearest(Vector3 pos, float range, int n)
         {
             var result = new List<Enemy>();
             var used = new HashSet<Enemy>();
 
-            var current = FindClosestEnemyExcluded(pos, used);
-            if (current == null)
-                return result;
-
-            result.Add(current);
-            used.Add(current);
-
-            while (result.Count < n)
+            var lastPoint = pos; 
+            for (var i = 0; i < n; i++)
             {
-                var next = FindClosestEnemyExcluded(current.transform.position, used);
-                if (next == null)
-                    break;
+                Enemy res = null;
+                var lastD = range;
+                foreach (var l in _alive)
+                foreach (var e in l)
+                {
+                    if (e == null || used.Contains(e)) continue;
 
-                result.Add(next);
-                used.Add(next);
-                current = next;
+                    var d = Vector2.Distance(e.transform.position, lastPoint);
+                    if (d >= lastD) continue;
+                    lastD = d;
+                    res = e;
+                }
+                if (res == null) break;
+
+                lastPoint = res.transform.position;
+                used.Add(res);
+                result.Add(res);
             }
-
+            
+            Debug.Log($"COUNT: {n}:{result.Count}");
             return result;
-        }
-        
-        private Enemy FindClosestEnemyExcluded(Vector3 pos, HashSet<Enemy> excluded)
-        {
-            Enemy closest = null;
-            var minSqrDist = float.MaxValue;
-
-            foreach (var list in _alive)
-            foreach (var enemy in list)
-            {
-                if (enemy == null || excluded.Contains(enemy)) continue;
-                var sqrDist = (enemy.transform.position - pos).sqrMagnitude;
-                if (!(sqrDist < minSqrDist)) continue;
-                minSqrDist = sqrDist;
-                closest = enemy;
-            }
-
-            return closest;
         }
         
         private List<Enemy> AllInRange(Vector3 pos, float range)

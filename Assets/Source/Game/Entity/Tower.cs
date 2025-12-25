@@ -81,12 +81,17 @@ namespace Source.Game.Entity
                 _targets.RemoveAll(e => e == null || Vector3.Distance(e.transform.position, transform.position) > _stats.Range);
                 if (_targets.Count > 0) return;
             }
+
+            var boostedRange = Data.GetBoostedRange(_stats.Range, _boost);
+            var hasEffect = Data.Effects == null || Data.Effects.Count == 0;
+            var n = hasEffect ? 1 : Data.Effects[0].GetCount(Level);
+            var subR = hasEffect ? boostedRange : Data.Effects[0].GetRadius(Level);
             
             _targets = _waveController.Selector.Get(
                 transform.position, 
-                Data.GetBoostedRange(_stats.Range, _boost), 
-                0, 
-                0, 
+                boostedRange, 
+                subR,
+                Mathf.RoundToInt(n), 
                 Data.TargetSelectBehaviour
             );
         }
@@ -98,6 +103,7 @@ namespace Source.Game.Entity
                 TargetSelectBehaviour.Nearest => true,
                 TargetSelectBehaviour.RandomInRange => true,
                 TargetSelectBehaviour.MostPowerFull => true,
+                TargetSelectBehaviour.ChainOfNearest => true,
                 _ => false
             };
         }
