@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fast
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.EnemyData
   sprite: {fileID: -7911572535675539837, guid: 08d7cbec565b5e64086597af43e94c82, type: 3}
-  speed: 2
-  hp: 60
+  speed: 2.2
+  hp: 100
   damage: 1
   bounty: 20
-  energyBounty: 5
+  energyBounty: 6

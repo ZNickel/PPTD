@@ -1,3 +1,4 @@
+using System.Collections;
 using Source.Data.Way;
 using Source.Event;
 using Source.Game.Entity.Bullets;
@@ -21,15 +22,23 @@ namespace Source.Game.Entity
         public EnemyData Data => data;
 
         private float _debuff;
+        private bool _skillDebuff;
         
-        public void AddDebuff(float v)
+        public void AddDebuff(float v, bool skillDebuff = false, float t = 0f)
         {
+            if (_skillDebuff) return;
+            if (skillDebuff)
+            {
+                _skillDebuff = true;
+                StartCoroutine(AutoUnDebuff(t));
+            }
             _debuff = v;
             _sr.color = Color.blue;;
         }
         
-        public void CancelDebuff()
+        public void CancelDebuff(bool skillDebuff = false)
         {
+            if (skillDebuff && _skillDebuff) _skillDebuff = false;
             _debuff = 1f;
             _sr.color = Color.white;
         }
@@ -69,7 +78,7 @@ namespace Source.Game.Entity
 
             var target = _wayData[_wpIndex];
 
-            var d = data.Speed * _debuff * Time.deltaTime;
+            var d = data.Speed * Time.deltaTime * _debuff;
             var next = Vector2.MoveTowards(transform.position, target, d);
 
             var z = -.5f + d * .1f;
@@ -85,7 +94,7 @@ namespace Source.Game.Entity
             
             var old = _currentHp;
 
-            damage *= 1f / _debuff;
+            damage *= _skillDebuff ? 1f : 1f / _debuff;
             
             _currentHp -= damage;
             UIEventBus.Instance.Trigger_ShowPopupNumber(Mathf.RoundToInt(damage), this);
@@ -109,6 +118,12 @@ namespace Source.Game.Entity
             var b = o.GetComponent<UniBullet>();
             Destroy(o);
             Hit(b.Damage);
+        }
+
+        private IEnumerator AutoUnDebuff(float t)
+        {
+            yield return new WaitForSeconds(t);
+            CancelDebuff();
         }
     }
 }

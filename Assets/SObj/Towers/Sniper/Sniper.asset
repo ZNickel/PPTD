@@ -30,16 +30,16 @@ MonoBehaviour:
   baseLvlUpPrice: 50
   lvlUpPriceFactor: 1.5
   sellPriceFactor: 0.75
-  range: 6
+  range: 3
   atkSpeed: 0.5
   projectileSpeed: 10
   hp: 50
-  damage: 50
+  damage: 75
   lvlFacRange: 1.2
-  lvlFacAtkSpeed: 1.2
+  lvlFacAtkSpeed: 0.9
   lvlFacProjSpeed: 1.2
   lvlFacHp: 1.2
   lvlFacDamage: 1.5
-  boostRange: 1
-  boostAtkSpeed: 1.2
-  boostDamage: 1.5
+  boostRange: 1.5
+  boostAtkSpeed: 0.9
+  boostDamage: 2

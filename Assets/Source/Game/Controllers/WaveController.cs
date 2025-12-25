@@ -63,7 +63,7 @@ namespace Source.Game.Controllers
             if (_endTriggered) return;
             if (_currentWaveIndex >= _waves.Length)
             {
-                UIEventBus.Instance.Trigger_EventGameOver(true);
+                UIEventBus.Instance.Trigger_EventGameOver(_gc.CResource.Health > 0);
                 _endTriggered = true;
                 return;
             }

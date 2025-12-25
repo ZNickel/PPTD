@@ -3,6 +3,7 @@ using Source.Event;
 using Source.Game.Entity;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Source.UI.Hud.Skill
@@ -72,9 +73,12 @@ namespace Source.UI.Hud.Skill
             clickBar.Setup();
         }
 
-        private void Launch(Tower t)
+        private UnityAction<(Tower, float)> _finAct;
+        
+        private void Launch(Tower t, UnityAction<(Tower, float)> finAct)
         {
             _tower = t;
+            _finAct = finAct;
             _clicks = 0;
             _elapsed = _tower.Data.Skill.ClickTime;
             _cg.blocksRaycasts = _isLaunched = true;
@@ -115,9 +119,8 @@ namespace Source.UI.Hud.Skill
         {
             _cg.blocksRaycasts = _isLaunched = false;
             mainAnimator.SetBool(HashShow, false);
-            var t = Mathf.Clamp(_clicks / (float)_tower.Data.Skill.ClickCount, 0f, 1f);
-            
-            Debug.Log($"->Skill<- {t}");
+            var perf = Mathf.Clamp(_clicks / (float)_tower.Data.Skill.ClickCount, 0f, 1f);
+            _finAct.Invoke((_tower, perf));
         }
     }
 }

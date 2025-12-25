@@ -1,10 +1,9 @@
-using System;
 using System.Collections.Generic;
-using System.Text;
 using Source.Data;
 using Source.Data.Towers;
 using Source.Event;
 using Source.Game.Entity;
+using Source.Game.Skills;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -28,6 +27,15 @@ namespace Source.Game.Controllers
         
         [SerializeField] private Transform towerContainer;
         [SerializeField] private GameObject towerPrefab;
+        
+        private static readonly Dictionary<TowerSkillType, Skill> Skills = new()
+        {
+            [TowerSkillType.Empty] = new EmptySkill(),
+            [TowerSkillType.Laser] = new LaserSkill(),
+            [TowerSkillType.Freeze] = new FreezSkill(),
+            [TowerSkillType.Meteor] = new MeteorRainSkill(),
+            [TowerSkillType.Thunder] = new ThunderSkill(),
+        };
         
         private Mode TcMode { get; set; }
 
@@ -131,11 +139,20 @@ namespace Source.Game.Controllers
 
         public void Skill(Tower t)
         {
+            if (t.Data.Skill.SkillType == TowerSkillType.Empty) return;
+         
             var cost = t.Data.Skill.PowerCost;
             var canCast = _gc.CResource.ChangePower(-cost);
             if (!canCast) return;
             
-            UIEventBus.Instance.Trigger_EnableSkillLauncher(t);
+            UIEventBus.Instance.Trigger_EnableSkillLauncher(t, PlaySkill);
+        }
+
+        private void PlaySkill((Tower t, float perf) info)
+        {
+            var skill = Skills[info.t.Data.Skill.SkillType];
+            
+            skill.Cast(info.t.Data.Skill, info.perf, _gc.CWave.Selector.All());
         }
 
         private (int x, int y) FindTowerXy(Tower t)

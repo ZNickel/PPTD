@@ -24,7 +24,7 @@ MonoBehaviour:
   time: 5
   maxFalloff: 1
   minFalloff: 0.25
-  interval: 0.3333
+  interval: 0.25
   lvlDamage: 1.1
   lvlRadius: 1.1
   lvlCount: 1.1

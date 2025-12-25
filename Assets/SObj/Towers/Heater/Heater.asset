@@ -26,20 +26,20 @@ MonoBehaviour:
   cascadeEffects: 0
   effects:
   - {fileID: 11400000, guid: c9aaee0610a59154399a33ea6577a62d, type: 2}
-  basePrice: 125
-  baseLvlUpPrice: 60
-  lvlUpPriceFactor: 1.5
+  basePrice: 120
+  baseLvlUpPrice: 70
+  lvlUpPriceFactor: 1.8
   sellPriceFactor: 0.75
-  range: 3
+  range: 2
   atkSpeed: 1
-  projectileSpeed: 10
+  projectileSpeed: 8
   hp: 100
-  damage: 25
-  lvlFacRange: 1.2
+  damage: 20
+  lvlFacRange: 1.5
   lvlFacAtkSpeed: 1.2
-  lvlFacProjSpeed: 1.2
-  lvlFacHp: 1.2
-  lvlFacDamage: 1.2
+  lvlFacProjSpeed: 1
+  lvlFacHp: 1
+  lvlFacDamage: 1
   boostRange: 1.5
-  boostAtkSpeed: 1.2
+  boostAtkSpeed: 1.25
   boostDamage: 2

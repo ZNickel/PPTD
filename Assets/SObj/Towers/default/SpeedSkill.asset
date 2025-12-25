@@ -12,25 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee158ed8cee44479de64c4b3dd6ba63, type: 3}
   m_Name: SpeedSkill
   m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerSkillParams
-  skillName: Freeze
-  skillType: 3
-  clickCount: 32
-  clickTime: 5
-  damage: 10
-  radius: 2
-  count: 3
-  time: 1
-  maxFalloff: 1
-  minFalloff: 0.25
-  lvlDamage: 1.1
-  lvlRadius: 1.1
-  lvlCount: 1.1
-  lvlTime: 1.1
-  lvlMaxFall: 1.1
-  lvlMinFall: 1.1
-  perfDamage: 0.25
-  perfRadius: 1
-  perfCount: 1
-  perfTime: 1
-  perfMaxFall: 1
-  perfMinFall: 1
+  skillName: Empty
+  skillType: 0
+  clickCount: 1
+  clickTime: 1
+  powerCost: 0
+  minPower: 0
+  maxPower: 1
+  minTime: 0
+  maxTime: 1
+  minCount: 0
+  maxCount: 1

@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: LightningSkill
   m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerSkillParams
   skillName: ThinderStorm
-  skillType: 3
-  clickCount: 32
-  clickTime: 5
-  powerCost: 10
+  skillType: 4
+  clickCount: 42
+  clickTime: 4
+  powerCost: 130
+  minPower: 50
+  maxPower: 200
+  minTime: 0
+  maxTime: 1
+  minCount: 4
+  maxCount: 9

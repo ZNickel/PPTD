@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Locker
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.EnemyData
   sprite: {fileID: 8596640243658272642, guid: 08d7cbec565b5e64086597af43e94c82, type: 3}
-  speed: 1
+  speed: 1.2
   hp: 100
   damage: 1
   bounty: 30
-  energyBounty: 5
+  energyBounty: 20

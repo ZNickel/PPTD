@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Source.Game.Entity.EnemyData
   sprite: {fileID: -7642239419928554605, guid: 08d7cbec565b5e64086597af43e94c82, type: 3}
   speed: 1
-  hp: 100
+  hp: 180
   damage: 1
-  bounty: 20
-  energyBounty: 5
+  bounty: 15
+  energyBounty: 4

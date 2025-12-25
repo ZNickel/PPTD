@@ -2,10 +2,10 @@ namespace Source.Data.Towers
 {
     public enum TowerSkillType
     {
-        Splash,
-        Dot,
-        Chain,
-        Hit,
-        Debuff,
+        Empty,
+        Freeze,
+        Laser,
+        Meteor,
+        Thunder,
     }
 }

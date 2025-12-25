@@ -13,24 +13,13 @@ MonoBehaviour:
   m_Name: CoolerSkill
   m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerSkillParams
   skillName: Freeze
-  skillType: 3
-  clickCount: 32
+  skillType: 1
+  clickCount: 50
   clickTime: 5
-  damage: 10
-  radius: 2
-  count: 3
-  time: 1
-  maxFalloff: 1
-  minFalloff: 0.25
-  lvlDamage: 1.1
-  lvlRadius: 1.1
-  lvlCount: 1.1
-  lvlTime: 1.1
-  lvlMaxFall: 1.1
-  lvlMinFall: 1.1
-  perfDamage: 0.25
-  perfRadius: 1
-  perfCount: 1
-  perfTime: 1
-  perfMaxFall: 1
-  perfMinFall: 1
+  powerCost: 60
+  minPower: 0
+  maxPower: 1
+  minTime: 2
+  maxTime: 6
+  minCount: 1
+  maxCount: 999

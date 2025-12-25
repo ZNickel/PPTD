@@ -27,6 +27,13 @@ namespace Source.Game.Controllers
             };
         }
 
+        public List<Enemy> All()
+        {
+            var es = new List<Enemy>();
+            foreach (var l in _alive) es.AddRange(l.Where(e => e != null));
+            return es;
+        }
+
         private List<Enemy> NearestInRange(Vector3 pos, float range)
         {
             Enemy res = null;

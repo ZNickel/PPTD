@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: HeaterSkill
   m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerSkillParams
   skillName: Explosion
-  skillType: 0
-  clickCount: 32
-  clickTime: 5
-  powerCost: 10
+  skillType: 3
+  clickCount: 80
+  clickTime: 6.2
+  powerCost: 100
+  minPower: 25
+  maxPower: 150
+  minTime: 0.1
+  maxTime: 0.75
+  minCount: 1
+  maxCount: 3

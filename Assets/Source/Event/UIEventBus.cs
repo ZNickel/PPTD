@@ -71,8 +71,8 @@ namespace Source.Event
 
         #region Tower skill launcher
 
-        public UnityEvent<Tower> EnableSkillLauncher { get; } = new();
-        public void Trigger_EnableSkillLauncher(Tower t) => EnableSkillLauncher.Invoke(t);
+        public UnityEvent<Tower, UnityAction<(Tower, float p)>> EnableSkillLauncher { get; } = new();
+        public void Trigger_EnableSkillLauncher(Tower t, UnityAction<(Tower, float p)> action) => EnableSkillLauncher.Invoke(t, action);
 
         #endregion
         

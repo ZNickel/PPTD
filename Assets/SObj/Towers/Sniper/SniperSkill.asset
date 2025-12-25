@@ -13,7 +13,13 @@ MonoBehaviour:
   m_Name: SniperSkill
   m_EditorClassIdentifier: Assembly-CSharp::Source.Data.Towers.TowerSkillParams
   skillName: InfiniteLaser
-  skillType: 3
-  clickCount: 32
-  clickTime: 5
-  powerCost: 10
+  skillType: 2
+  clickCount: 75
+  clickTime: 4
+  powerCost: 200
+  minPower: 50
+  maxPower: 500
+  minTime: 0
+  maxTime: 1
+  minCount: 0
+  maxCount: 3

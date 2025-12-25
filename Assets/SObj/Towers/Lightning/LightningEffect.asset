@@ -18,14 +18,14 @@ MonoBehaviour:
   showRadius: 1
   showCount: 1
   showTime: 1
-  damage: 10
-  radius: 2
+  damage: 20
+  radius: 1.5
   count: 3
   time: 1
   maxFalloff: 1
   minFalloff: 0.25
   interval: 0.3333
-  lvlDamage: 1.1
+  lvlDamage: 1.5
   lvlRadius: 1.1
   lvlCount: 1.1
   lvlTime: 1.1

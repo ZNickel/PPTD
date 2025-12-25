@@ -16326,7 +16326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Source.LevelGrid
   cellContainer: {fileID: 1035564912}
   wayContainer: {fileID: 780246405}
+  forcedUseUnselectedData: 1
   levelData: {fileID: 11400000, guid: 34edef70b8f6baa42967a75d4a2a2547, type: 2}
+  selectedLevel: {fileID: 0}
   cellCountWidth: 16
   cellCountHeight: 9
 --- !u!1 &1816516468
