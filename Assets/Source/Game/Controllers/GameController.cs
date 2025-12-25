@@ -36,9 +36,7 @@ namespace Source.Game.Controllers
 
         private void Start()
         {
-            endScreen.SetActive(false);
             var ld = levelGrid.CurrentLevelData;
-            
             CResource.Setup(ld.StartCoins, ld.StartPower, ld.StartHealth);
             CTowers.Setup(ld.Types, ld.Width, ld.Height);
             CWave.Setup(ld.Waves, ld.Ways);

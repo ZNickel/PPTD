@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08e4343112ee411aa7369d2fcd3bfbe8, type: 3}
-  m_Name: Level 1
+  m_Name: -Map-
   m_EditorClassIdentifier: Assembly-CSharp::Source.LevelData
   editorTileMap: {fileID: 11400000, guid: a6b49ba7380c90c4fbe71b6cc359c0de, type: 2}
   tileMap: {fileID: 11400000, guid: fb0c618a811fc6e47b5b7617ae201801, type: 2}

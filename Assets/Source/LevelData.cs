@@ -9,6 +9,7 @@ namespace Source
     [CreateAssetMenu(fileName = "LevelData", menuName = "Level/Level Data")]
     public class LevelData : ScriptableObject
     {
+        [SerializeField] private int index = -1;
         [SerializeField] private TileMap editorTileMap;
         [SerializeField] private TileMap tileMap;
         [SerializeField] private int width = 5;
@@ -19,7 +20,8 @@ namespace Source
         [SerializeField] private CellType[] types;
         [SerializeField] private WayPackData ways;
         [SerializeField] private WaveData[] waveData;
-        
+
+        public int Index => index;
         public int StartCoins => startCoins;
         public int StartPower => startPower;
         public int StartHealth => startHealth;

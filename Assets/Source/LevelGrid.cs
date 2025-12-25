@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Source.Data;
 using Source.Data.Way;
@@ -10,10 +8,14 @@ namespace Source
 {
     public class LevelGrid : MonoBehaviour
     {
-        [Header("Struct")] [SerializeField] private GameObject cellContainer;
+        [Header("Struct")] 
+        [SerializeField] private GameObject cellContainer;
         [SerializeField] private GameObject wayContainer;
 
-        [Header("Setup")] [SerializeField] private LevelData levelData;
+        [Header("Setup")] 
+        [SerializeField] private LevelData levelData;
+
+        [SerializeField] private LevelSelectionContainer selectedLevel;
 
         [Header("!Initial only")] [SerializeField]
         private int cellCountWidth;
@@ -21,6 +23,12 @@ namespace Source
         [SerializeField] private int cellCountHeight;
 
         public LevelData CurrentLevelData => levelData;
+
+        private void Awake()
+        {
+            if (selectedLevel != null && selectedLevel.lvlData != null) 
+                levelData = selectedLevel.lvlData;
+        }
 
         private void Start()
         {
